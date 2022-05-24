@@ -28,7 +28,7 @@ def eval_genome(genomes, config):
 		genome.fitness = 0
 		evaluation_set = build_evalset()
 		net = neat.nn.FeedForwardNetwork.create(genome, config)
-		for i in tqdm(range(len(evaluation_set))):
+		for i in range(len(evaluation_set)):
 			net_out = net.activate(evaluation_set[i][1])
 			if net_out.index(max(net_out)) == evaluation_set[i][0]:
 				genome.fitness += 1
